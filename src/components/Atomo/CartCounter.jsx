@@ -15,8 +15,6 @@ const mapStateToProps = (state) => (
     }
 )
 
-const mapDispatchToProps = () => {
-
-}
+const mapDispatchToProps = () => ({})
 
 export default connect(mapStateToProps,mapDispatchToProps)(CartCounter) 
