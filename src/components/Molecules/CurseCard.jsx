@@ -55,7 +55,7 @@ CurseCard.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  cart: state.cart
+  cart: state.cartReducer.cart
 })
 
 const mapDispatchToProps = (dispatch) => ({

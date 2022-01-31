@@ -1,34 +1,11 @@
-import axios from 'axios'
-import React, { Component } from 'react'
+import React from 'react'
 import CouseGrid from '../Organisms/CouseGrid'
+import { connect } from 'react-redux'
 
+const Courses = ({courses}) => <CouseGrid courses={courses}/>
 
+const mapStateToProps = state => ({
+     courses: state.coursesReducer.courses
+})
 
-class Courses extends Component {
-
-     constructor(props){
-          super(props)
-
-          this.state = {
-               courses: []
-          }
-     }
-
-     componentDidMount(){
-          axios.get("https://my-json-server.typicode.com/Yaki-Zeltzin/json-db/cursos")
-          .then(resp => this.setState({
-               courses:resp.data
-          }))
-     }
-
-     render() {
-
-          const { courses } = this.state
-
-          return  (
-               <CouseGrid courses={courses}/>
-          )
-     }
-}
-
-export default Courses
+export default connect(mapStateToProps,{})(Courses) 

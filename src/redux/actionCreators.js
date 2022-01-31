@@ -1,4 +1,5 @@
-import { ADD_TO_CART, DELETE_FROM_CART } from "./actions";
+import { ADD_TO_CART, DELETE_FROM_CART, GET_COURSE_LIST } from "./actions";
+import Axios from "axios"
 
 const addToCart = (id) => ({
     type: ADD_TO_CART,
@@ -10,6 +11,16 @@ const deleteFromCart = (id) => ({
     id
 })
 
+const getCourseList = () => dispatch => {
+    Axios.get("https://my-json-server.typicode.com/Yaki-Zeltzin/json-db/cursos")
+    .then(response => {
+        return dispatch({
+            type: GET_COURSE_LIST,
+            courses : response.data
+        })
+    })
+}
 
 
-export {addToCart, deleteFromCart} 
+
+export {addToCart, deleteFromCart, getCourseList} 
