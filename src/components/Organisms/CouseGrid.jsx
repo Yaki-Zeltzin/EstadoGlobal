@@ -1,5 +1,5 @@
 import React from "react"
-import CourseCard from "../Molecules/CourseCard"
+import CourseCard from "../Molecules/CurseCard"
 import withLoader from "../HOC/withLoader";
 
 const CourseGrid = ({courses}) => (

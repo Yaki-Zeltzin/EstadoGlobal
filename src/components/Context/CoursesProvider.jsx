@@ -15,6 +15,7 @@ class CoursesProvider extends Component {
         axios.get("https://my-json-server.typicode.com/Yaki-Zeltzin/json-db/cursos")
             .then(resp => this.setState({
                 courses: resp.data
+                
             }))
     }
 
