@@ -1,30 +1,31 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import CoursesContext from "./CoursesContext"
+import axios from "axios";
 
 class CoursesProvider extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
-            courses: [{
-                "id":1,
-                "titulo":"React desde cero con Context API",
-                "image":"https://drupal.ed.team/sities/default/files/imagenes-cdn",
-                "price":40,
-                "profesor":"Beto Quiroga",
-
-            }]
+            courses: []
         };
     }
 
-    render(){
-        return( 
+    componentDidMount() {
+        axios.get("https://my-json-server.typicode.com/Yaki-Zeltzin/json-db/cursos")
+            .then(resp => this.setState({
+                courses: resp.data
+            }))
+    }
+
+    render() {
+        return (
             <CoursesContext.Provider value={this.state}>
-                { this.props.children }
+                {this.props.children}
             </CoursesContext.Provider>
 
         )
     }
 }
 
-export default  CoursesProvider;
+export default CoursesProvider;
